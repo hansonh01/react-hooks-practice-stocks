@@ -1,13 +1,17 @@
 import React from "react";
 import Stock from "./Stock";
 
-function PortfolioContainer() {
+function PortfolioContainer({ portfolio , onRemove }) {
   return (
     <div>
       <h2>My Portfolio</h2>
-      {
-        //render your portfolio stocks here
-      }
+      {portfolio.map((portfolio)=>(
+        <Stock
+          key={portfolio.id}
+          stock={portfolio}
+          onClickTo={onRemove}
+        />
+      ))}
     </div>
   );
 }
